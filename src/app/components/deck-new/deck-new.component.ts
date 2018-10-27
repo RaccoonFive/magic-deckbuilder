@@ -3,6 +3,7 @@ import { DeckService } from 'src/app/services/deck.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Deck } from 'src/app/class/deck';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-deck-new',
@@ -17,7 +18,8 @@ export class DeckNewComponent implements OnInit {
   constructor(
     private deckService: DeckService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -26,6 +28,7 @@ export class DeckNewComponent implements OnInit {
   addDeck() {
     this.deckService.addDeck(this.newDeckForm.value as Deck);
     this.router.navigate(['deck-list']);
+    this.toastr.success('Deck added!');
   }
 
 }

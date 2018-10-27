@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { ToastrModule } from 'ngx-toastr';
+
 import { MatToolbarModule } from '@angular/material';
 import { MatIconModule, MatIcon } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
@@ -26,6 +28,7 @@ import { DeckNewComponent } from './components/deck-new/deck-new.component';
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(),
     MatToolbarModule,
     AppRoutingModule,
     MatIconModule,
