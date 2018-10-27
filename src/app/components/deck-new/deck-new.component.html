@@ -1,0 +1,17 @@
+<div class="header">
+  <h2 class="mat-display-2">New Deck</h2>
+</div>
+
+
+<div class="container">
+<form (submit)="addDeck()" [formGroup]="newDeckForm">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <div class="formButtons">
+      <button mat-flat-button color="accent">Submit</button>
+      <button mat-flat-button color="primary" type="button" routerLink="/deck-list">Back</button>
+    </div>
+  </form>
+</div>
