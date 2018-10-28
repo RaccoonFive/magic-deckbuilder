@@ -1,0 +1,18 @@
+<div class="container">
+  <mat-form-field style="width:100%;">
+    <input matInput placeholder="Card name" [formControl]="searchText" (keyup)="search()">
+  </mat-form-field>
+
+  <br/>
+
+  <div class="spinner" *ngIf="showSpinner">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="cards">
+    <mat-card *ngFor="let card of cards">
+      <img mat-card-image src="{{ card.imageUrl }}" alt="{{ card.name }}">
+    </mat-card>
+  </div>
+</div>
+

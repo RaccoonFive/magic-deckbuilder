@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  mtgApiUrl: 'https://api.magicthegathering.io/v1'
 };
