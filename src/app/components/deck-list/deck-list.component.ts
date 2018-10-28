@@ -26,4 +26,9 @@ export class DeckListComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
+  test() {
+    console.log('Hello');
+    
+  }
+
 }

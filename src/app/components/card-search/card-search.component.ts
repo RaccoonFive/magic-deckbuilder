@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/app/class/card';
 import { HttpClient } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Subject, timer } from 'rxjs';
 import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
@@ -39,6 +39,7 @@ export class CardSearchComponent implements OnInit {
     if (this.searchText.value === '') {
       this.cards = [];
     } else {
+      this.cards = [];
       this.showSpinner = true;
       this.http.get<any>(`${environment.mtgApiUrl}/cards?name=${this.searchText.value}`).subscribe(response => {
         this.showSpinner = false;
