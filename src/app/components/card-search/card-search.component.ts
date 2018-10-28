@@ -41,9 +41,10 @@ export class CardSearchComponent implements OnInit {
     } else {
       this.cards = [];
       this.showSpinner = true;
+
       this.http.get<any>(`${environment.mtgApiUrl}/cards?name=${this.searchText.value}`).subscribe(response => {
         this.showSpinner = false;
-        this.cards = response.cards;
+        this.cards = response.cards.filter(card => card.imageUrl !== undefined);
       });
     }
   }
