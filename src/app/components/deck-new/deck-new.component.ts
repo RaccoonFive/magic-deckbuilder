@@ -26,11 +26,11 @@ export class DeckNewComponent implements OnInit {
   }
 
   addDeck() {
-    this.deckService.addDeck(this.newDeckForm.value as Deck);
-    this.router.navigate(['deck-list']);
-
-    this.snackBar.open('Deck added!', 'Close', {
-      duration: 2000
+    this.deckService.addDeck(this.newDeckForm.value as Deck).subscribe(deck => {
+      this.router.navigate(['deck-list']);
+      this.snackBar.open(`Added deck : '${deck.name}'`, 'Close', {
+        duration: 2000
+      });
     });
   }
 

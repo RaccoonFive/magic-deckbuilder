@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DeckService } from 'src/app/services/deck.service';
 import { Deck } from 'src/app/class/deck';
 import { MatSort, MatTableDataSource } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -21,14 +22,10 @@ export class DeckListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.decks = this.deckService.decks;
-    this.dataSource = new MatTableDataSource(this.decks);
-    this.dataSource.sort = this.sort;
+    this.deckService.getDecks().subscribe(decks => {
+      this.decks = decks;
+      this.dataSource = new MatTableDataSource(this.decks);
+      this.dataSource.sort = this.sort;
+    });
   }
-
-  test() {
-    console.log('Hello');
-    
-  }
-
 }
